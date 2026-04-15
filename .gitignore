@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+final_script.json
+
+.env
+*.mp4
+*.mp3
