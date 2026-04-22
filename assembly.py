@@ -54,7 +54,7 @@ def create_final_reel(script_data, voice_file, video_files, output_name):
 
         
 
-    print(f"Rendering 3-minute final reel...")
+    print(f"Rendering 1-minute final reel...")
     final_video.write_videofile(output_name, fps=24, codec="libx264", audio_codec="aac", threads=4, preset="ultrafast", bitrate="3000k")
 
     print(f"Final reel created successfully: {output_name}")

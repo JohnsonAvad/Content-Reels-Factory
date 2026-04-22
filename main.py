@@ -31,7 +31,8 @@ async def run_content_pipeline(url):
     
     
     
-    print("Starting Multi-Asset Harvesting (12 scenes)...")
+    
+    print("Starting Multi-Asset Harvesting (4 scenes)...")
     video_clips = []
     full_voice_text = ""
 

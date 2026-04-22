@@ -15,7 +15,7 @@ def generate_script(website_content, target_sector):
     system_message = """
     
     You are an Enterprise Video Director and Reels scriptwriter. Your goal is to write a high-authority and 
-    high retention 3-minute video script for Zion Busines Venture. 
+    high retention 1-minute video script for Zion Busines Venture. 
     
     CONTEXT: Zion buys East African businesses with $100,000+ monthly profit using seller financing.
     TARGET AUDIENCE: Business owners in East Africa looking to retire, sell or exit.
@@ -23,8 +23,8 @@ def generate_script(website_content, target_sector):
 
     RULES
     1. Output MUST be in JSON format.
-    2. Total word count for the whole script must be approximately 450 words(to fill 3 minutes).
-    3. You must provide exactly 12 scenes in an array called 'video_project'.
+    2. Total word count for the whole script must be approximately 150 words(to fill 1 minute).
+    3. You must provide exactly 4 scenes in an array called 'video_project'.
     4. Each scene object must contain:
        - 'text': 30-40 words of narration.
        -  'search_keyword': A specific keyword for vertical stock footage (Include 'EastAfrican' in keywords frequently).
@@ -34,7 +34,9 @@ def generate_script(website_content, target_sector):
         "video_project":[
             {{"text": "...", "search_keyword": "EastAfrican_businessman thinking"}},
             {{"text": "...", "search_keyword": "African businessman retiring"}},
-        
+            {{"text": "...", "search_keyword": "EastAfrican_businesswoman selling"}},
+            {{"text": "...", "search_keyword": "African entrepreneur quitting"}}
+
         ]
     }}   
    
@@ -52,7 +54,7 @@ def generate_script(website_content, target_sector):
 
     chain = prompt | llm
 
-    print(f"AI is directing the 3-minute script for the {target_sector} sector...")
+    print(f"AI is directing the 1-minute script for the {target_sector} sector...")
     response = chain.invoke({f"content": website_content, "sector": target_sector})
     return json.loads(response.content)
 

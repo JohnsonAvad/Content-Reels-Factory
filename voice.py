@@ -2,7 +2,7 @@ import asyncio
 import edge_tts
 
 async def generate_voice(text, filename):
-    print(f"Generating AI voice for: {text[:30]}...")
+    print(f"Generating AI voice for: {text[:60]}...")
 
     voice = "en-US-GuyNeural"
 
