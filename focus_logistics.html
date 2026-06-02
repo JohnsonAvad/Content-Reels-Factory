@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Focus Logistics Agencies Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --blue-dark:  #003B7A;
+    --blue-mid:   #0055B3;
+    --blue-main:  #0070E0;
+    --blue-light: #E8F2FF;
+    --blue-pale:  #F0F6FF;
+    --white:      #FFFFFF;
+    --off-white:  #F7FAFF;
+    --border:     #C2D8F5;
+    --text-dark:  #0A1929;
+    --text-mid:   #2C4A6E;
+    --text-muted: #6B8BAE;
+    --gold:       #F5A623;
+    --gold-light: #FFF3DC;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, var(--blue-dark) 0%, var(--blue-mid) 55%, var(--blue-main) 100%);
+    padding: 0 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute;
+    top:-80px; right:-80px;
+    width:340px; height:340px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events:none;
+  }
+  .hero::after {
+    content:'';
+    position:absolute;
+    bottom:-60px; left:-60px;
+    width:260px; height:260px;
+    border-radius:50%;
+    background: rgba(0,112,224,0.18);
+    pointer-events:none;
+  }
+
+  /* top bar */
+  .topbar {
+    background: rgba(0,0,0,0.25);
+    padding: 8px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+  }
+  .topbar a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .topbar a:hover { color: #fff; }
+
+  /* nav */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    position: relative;
+    z-index: 10;
+  }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon {
+    width: 50px; height: 50px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    backdrop-filter: blur(6px);
+  }
+  .logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 1.15;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .logo-text span {
+    display: block;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+  }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(245,166,35,0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .nav-cta:active { transform: scale(0.97); }
+
+  /* hero body */
+  .hero-body {
+    padding: 32px 22px 0;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    backdrop-filter: blur(4px);
+  }
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 340px;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(245,166,35,0.4);
+    transition: transform 0.15s;
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: background 0.15s;
+  }
+  .btn-primary:active { transform: scale(0.97); }
+  .btn-secondary:active { background: rgba(255,255,255,0.2); }
+
+  /* hero stats */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 36px;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.07);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative; z-index:2;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 3px; }
+
+  /* wave */
+  .wave { display:block; width:100%; margin-top:-2px; }
+
+  /* ── SECTIONS ── */
+  section { padding: 44px 20px; }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue-main);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  /* ── SERVICES: CAR WASH ── */
+  #services { background: var(--white); }
+
+  .wash-cards { display: grid; gap: 16px; }
+
+  .wash-card {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,55,115,0.09);
+    border: 1px solid var(--border);
+    animation: fadeUp 0.5s ease both;
+  }
+  .wash-card:nth-child(2) { animation-delay: 0.1s; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(24px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  .wash-header {
+    padding: 18px 20px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .wash-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .wash-title-block {}
+  .wash-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.1;
+  }
+  .wash-desc { font-size: 12px; margin-top: 2px; }
+
+  /* Normal */
+  .wash-card.normal .wash-header { background: var(--blue-light); }
+  .wash-card.normal .wash-icon { background: rgba(0,112,224,0.12); }
+  .wash-card.normal .wash-name { color: var(--blue-dark); }
+  .wash-card.normal .wash-desc { color: var(--text-muted); }
+
+  /* Executive */
+  .wash-card.executive .wash-header { background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid)); }
+  .wash-card.executive .wash-icon { background: rgba(255,255,255,0.15); }
+  .wash-card.executive .wash-name { color: #fff; }
+  .wash-card.executive .wash-desc { color: rgba(255,255,255,0.65); }
+  .wash-card.executive .wash-badge {
+    margin-left: auto;
+    background: var(--gold);
+    color: var(--text-dark);
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .price-grid {
+    padding: 0;
+  }
+  .price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--blue-pale);
+    transition: background 0.15s;
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-row:active { background: var(--blue-pale); }
+
+  .car-type { display: flex; align-items: center; gap: 10px; }
+  .car-emoji { font-size: 22px; }
+  .car-info {}
+  .car-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-dark);
+  }
+  .car-hint { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+  .price-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--blue-main);
+    white-space: nowrap;
+  }
+  .wash-card.executive .price-tag { color: var(--blue-dark); }
+  .price-tag span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-left: 2px;
+  }
+
+  /* ── EXTRA SERVICES ── */
+  #extras { background: var(--blue-pale); }
+
+  .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .extra-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 18px 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,55,115,0.06);
+    animation: fadeUp 0.5s ease both;
+    text-align: center;
+  }
+  .extra-card:nth-child(2) { animation-delay:.07s; }
+  .extra-card:nth-child(3) { animation-delay:.14s; }
+  .extra-card:nth-child(4) { animation-delay:.21s; }
+  .extra-card:nth-child(5) { animation-delay:.28s; }
+  .extra-card:nth-child(6) { animation-delay:.35s; }
+
+  .extra-icon { font-size: 30px; margin-bottom: 8px; }
+  .extra-name {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+  }
+  .extra-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--blue-main);
+  }
+  .extra-price span { font-size: 11px; font-weight:500; color: var(--text-muted); }
+
+  .full-width-extra {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+    border-radius: 16px;
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 18px rgba(0,55,115,0.2);
+  }
+  .full-width-extra .extra-icon { font-size: 28px; margin:0; }
+  .full-width-extra .extra-name { color: rgba(255,255,255,0.85); margin:0; font-size:12px; }
+  .full-width-extra .extra-price { color: var(--gold); }
+  .full-width-extra .extra-price span { color: rgba(255,255,255,0.55); }
+
+  /* ── WHY CHOOSE US ── */
+  #why { background: var(--white); }
+
+  .why-grid { display: grid; gap: 14px; }
+  .why-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--blue-pale);
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    animation: fadeUp 0.5s ease both;
+  }
+  .why-card:nth-child(2){animation-delay:.1s;}
+  .why-card:nth-child(3){animation-delay:.2s;}
+  .why-card:nth-child(4){animation-delay:.3s;}
+
+  .why-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    background: var(--blue-main);
+    color: #fff;
+    font-size: 22px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .why-text {}
+  .why-title { font-weight: 700; font-size: 15px; color: var(--text-dark); margin-bottom: 4px; }
+  .why-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: linear-gradient(160deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+    padding: 44px 20px 50px;
+  }
+  #contact .section-tag { color: var(--gold); }
+  #contact .section-title { color: #fff; }
+  #contact .section-sub { color: rgba(255,255,255,0.65); }
+
+  .contact-cards { display: grid; gap: 12px; }
+
+  .contact-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .contact-card:active { background: rgba(255,255,255,0.15); }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    font-size: 22px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon.phone { background: rgba(37,211,102,0.2); }
+  .contact-icon.wa    { background: rgba(37,211,102,0.2); }
+  .contact-icon.mail  { background: rgba(0,112,224,0.25); }
+  .contact-icon.loc   { background: rgba(245,166,35,0.2); }
+
+  .contact-label { font-size: 11px; color: rgba(255,255,255,0.55); margin-bottom: 2px; }
+  .contact-value { font-size: 15px; font-weight: 600; color: #fff; }
+
+  /* quote CTA banner */
+  .cta-banner {
+    background: var(--gold);
+    border-radius: 18px;
+    padding: 22px 20px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .cta-banner h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .cta-banner p { font-size: 13px; color: var(--text-mid); margin-bottom: 16px; }
+  .cta-banner a {
+    display: inline-block;
+    background: var(--blue-dark);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  footer strong { color: rgba(255,255,255,0.85); }
+
+  /* ── FLOATING WHATSAPP ── */
+  .wa-float {
+    position: fixed;
+    bottom: 22px;
+    right: 18px;
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 6px 22px rgba(37,211,102,0.45);
+    text-decoration: none;
+    z-index: 999;
+    animation: bounce 2.5s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity:0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity:1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" href="tel:+2560701555304" title="Call us">📞</a>
+
+<!-- ── HERO ────────────────────────────────── -->
+<header class="hero">
+  <div class="topbar">
+    <a href="tel:+2560700105515">0700 105515</a>
+    <a href="tel:+2560772555304">0772 555304</a>
+    <a href="tel:+2560701492409">0701 492409</a>
+  </div>
+  <nav>
+    <div class="logo-wrap">
+      <div class="logo-icon">🚗</div>
+      <div class="logo-text">
+        Focus Logistics
+        <span>Agencies Ltd</span>
+      </div>
+    </div>
+    <a href="#contact" class="nav-cta">Book Now</a>
+  </nav>
+  <div class="hero-body">
+    <div class="hero-tag">✦ Kampala, Uganda</div>
+    <h1 class="hero-title">
+      Professional<br/>
+      Car <em>Cleaning</em><br/>
+      Services
+    </h1>
+    <p class="hero-sub">
+      From a quick normal wash to a full executive detail — we care for every vehicle with precision and professionalism.
+    </p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">See Prices 💰</a>
+      <a href="tel:+2560701555304" class="btn-secondary">📞 Call Us</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Cars Washed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7+</div>
+      <div class="stat-label">Services</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Satisfaction</div>
+    </div>
+  </div>
+</header>
+
+<!-- wave divider -->
+<svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,20 C360,44 1080,-4 1440,20 L1440,40 L0,40 Z" fill="#ffffff"/>
+</svg>
+
+<!-- ── CAR WASH SERVICES ──────────────────── -->
+<section id="services">
+  <div class="reveal">
+    <div class="section-tag">Our Services</div>
+    <h2 class="section-title">Car Wash<br/>Packages</h2>
+    <p class="section-sub">Choose the package that suits your vehicle. Transparent pricing, no hidden charges.</p>
+  </div>
+
+  <div class="wash-cards reveal">
+
+    <!-- NORMAL WASH -->
+    <div class="wash-card normal">
+      <div class="wash-header">
+        <div class="wash-icon">🚿</div>
+        <div class="wash-title-block">
+          <div class="wash-name">Normal Wash</div>
+          <div class="wash-desc">Standard exterior clean</div>
+        </div>
+      </div>
+      <div class="price-grid">
+        <div class="price-row">
+          <div class="car-type">
+            <span class="car-emoji">🚗</span>
+            <div class="car-info">
+              <div class="car-name">Saloon Car</div>
+              <div class="car-hint">Sedan / Small cars</div>
+            </div>
+          </div>
+          <div class="price-tag">15,000<span>UGX</span></div>
+        </div>
+        <div class="price-row">
+          <div class="car-type">
+            <span class="car-emoji">🚙</span>
+            <div class="car-info">
+              <div class="car-name">Wagon Car</div>
+              <div class="car-hint">SUV / Station wagon</div>
+            </div>
+          </div>
+          <div class="price-tag">20,000<span>UGX</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXECUTIVE WASH -->
+    <div class="wash-card executive">
+      <div class="wash-header">
+        <div class="wash-icon">⭐</div>
+        <div class="wash-title-block">
+          <div class="wash-name">Executive Wash</div>
+          <div class="wash-desc">Premium full detail service</div>
+        </div>
+        <div class="wash-badge">Premium</div>
+      </div>
+      <div class="price-grid">
+        <div class="price-row">
+          <div class="car-type">
+            <span class="car-emoji">🚗</span>
+            <div class="car-info">
+              <div class="car-name">Saloon Car</div>
+              <div class="car-hint">Sedan / Small cars</div>
+            </div>
+          </div>
+          <div class="price-tag">20,000<span>UGX</span></div>
+        </div>
+        <div class="price-row">
+          <div class="car-type">
+            <span class="car-emoji">🚙</span>
+            <div class="car-info">
+              <div class="car-name">Wagon Car</div>
+              <div class="car-hint">SUV / Station wagon</div>
+            </div>
+          </div>
+          <div class="price-tag">25,000<span>UGX</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── EXTRA SERVICES ─────────────────────── -->
+<section id="extras">
+  <div class="reveal">
+    <div class="section-tag">Add-On Services</div>
+    <h2 class="section-title">Engine &amp;<br/>Interior Extras</h2>
+    <p class="section-sub">Upgrade your wash with specialist treatments for every part of your vehicle.</p>
+  </div>
+
+  <div class="extras-grid reveal">
+
+    <div class="extra-card">
+      <div class="extra-icon">🔧</div>
+      <div class="extra-name">Engine All Cars</div>
+      <div class="extra-price">6,000<span> UGX</span></div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">📦</div>
+      <div class="extra-name">Full Package</div>
+      <div class="extra-price">10,000<span> UGX</span></div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">❄️</div>
+      <div class="extra-name">A/C Cleaning</div>
+      <div class="extra-price">50,000<span> UGX</span></div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">🌀</div>
+      <div class="extra-name">Hoovering</div>
+      <div class="extra-price">6,000<span> UGX</span></div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">💨</div>
+      <div class="extra-name">Fumigation — All Cars</div>
+      <div class="extra-price">6,000<span> UGX</span></div>
+    </div>
+
+    <!-- Floor Carpets full width -->
+    <div class="extra-card full-width-extra">
+      <div class="extra-icon">🏠</div>
+      <div>
+        <div class="extra-name">Floor Carpets</div>
+        <div class="extra-price">50,000<span> to 100,000 UGX</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE US ───────────────────────── -->
+<section id="why">
+  <div class="reveal">
+    <div class="section-tag">Why Choose Us</div>
+    <h2 class="section-title">Quality You<br/>Can Trust</h2>
+    <p class="section-sub">We go beyond the basics to deliver a service that keeps your car looking its best.</p>
+  </div>
+
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-text">
+        <div class="why-title">Fast Turnaround</div>
+        <div class="why-desc">We work efficiently to get your vehicle back to you as quickly as possible — no long waits.</div>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💎</div>
+      <div class="why-text">
+        <div class="why-title">Professional Team</div>
+        <div class="why-desc">Our trained staff treat every vehicle with care, from humble hatchbacks to executive SUVs.</div>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <div class="why-text">
+        <div class="why-title">Transparent Pricing</div>
+        <div class="why-desc">What you see is what you pay. No surprise charges — all prices are fixed and clearly listed.</div>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📍</div>
+      <div class="why-text">
+        <div class="why-title">Kampala Based</div>
+        <div class="why-desc">Conveniently located in Kampala, Uganda — easy to reach, easy to trust.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────── -->
+<section id="contact">
+  <div class="section-tag">Get In Touch</div>
+  <h2 class="section-title">Contact &amp;<br/>Location</h2>
+  <p class="section-sub">Call, WhatsApp or visit us. We're ready to serve you every day.</p>
+
+  <div class="contact-cards">
+
+    <a href="tel:+2560701555304" class="contact-card">
+      <div class="contact-icon phone">📞</div>
+      <div>
+        <div class="contact-label">Call Us</div>
+        <div class="contact-value">0701 555304</div>
+      </div>
+    </a>
+
+    <a href="tel:+2560772555304" class="contact-card">
+      <div class="contact-icon phone">📞</div>
+      <div>
+        <div class="contact-label">Alternative</div>
+        <div class="contact-value">0772 555304</div>
+      </div>
+    </a>
+
+    <a href="https://wa.me/2560701555304?text=Hello%20Focus%20Logistics%2C%20I%20would%20like%20to%20book%20a%20car%20wash." class="contact-card" target="_blank">
+      <div class="contact-icon wa">💬</div>
+      <div>
+        <div class="contact-label">WhatsApp Us</div>
+        <div class="contact-value">Chat on WhatsApp</div>
+      </div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Kampala+Uganda" class="contact-card" target="_blank">
+      <div class="contact-icon loc">📍</div>
+      <div>
+        <div class="contact-label">Our Location</div>
+        <div class="contact-value">P.O Box 12188, Kampala</div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="cta-banner">
+    <h3>Ready to book?</h3>
+    <p>Tap below to send us a WhatsApp message instantly</p>
+    <a href="https://wa.me/2560701555304?text=Hello%20Focus%20Logistics%2C%20I%20would%20like%20to%20book%20a%20car%20wash." target="_blank">💬 Book via WhatsApp</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <strong>Focus Logistics Agencies Ltd</strong><br/>
+  P.O Box 12188 · Kampala, Uganda<br/>
+  Tel: 0701 555304 / 0772 555304 / 0701 492409 / 0700 105515<br/><br/>
+  <em style="font-size:11px; color:rgba(255,255,255,0.3);">Demo website — built with ❤️ for Focus Logistics</em>
+</footer>
+
+<script>
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// Show first reveals immediately
+setTimeout(() => {
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    if (i < 3) el.classList.add('visible');
+  });
+}, 100);
+</script>
+</body>
+</html>
