@@ -3,35 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="tiktok-verify" content="tiktok-developers-site-verification=5LDiHmRsNGUDxkYAQ1158kqf1K0eRlEj">
-    <title>AVAD Content Orchestration Engine | Operational Hub</title>
+    <title>Avad CRM | Autonomic Business Orchestration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0F172A; color: #F1F5F9; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; }
-        h1 { color: #F1F5F9; border-bottom: 2px solid #D97706; padding-bottom: 10px; }
-        .box { background: #1E293B; padding: 20px; border-radius: 8px; margin-top: 20px; }
-        .legal-links { margin-top: 30px; display: flex; gap: 20px; }
-        a { color: #D97706; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
+        :root {
+            --gold: #D97706; 
+            --obsidian: #020617; 
+            --slate: #1E293B; 
+            --white: #F1F5F9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--obsidian); color: var(--white); scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+        header {
+            height: 90vh;
+            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; border-bottom: 2px solid var(--gold);
+        }
+
+        .hero-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; }
+        .gold-glow { color: var(--gold); text-shadow: 0 0 25px rgba(217, 119, 6, 0.3); }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; padding: 0 10%; margin-top: -80px;
+        }
+
+        .pillar-card {
+            background: var(--slate); border: 1px solid rgba(217, 119, 6, 0.2);
+            padding: 35px; border-radius: 15px; transition: 0.4s;
+            text-decoration: none; color: inherit; display: block;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .pillar-card:hover { 
+            transform: translateY(-12px); 
+            border-color: var(--gold); 
+            background: #0F172A;
+            box-shadow: 0 20px 45px rgba(217, 119, 6, 0.1); 
+        }
+
+        .pillar-card h3 { color: var(--gold); margin-bottom: 12px; font-size: 1.4rem; }
+        .pillar-card p { font-size: 0.95rem; line-height: 1.5; color: #94A3B8; }
+
+        section { padding: 120px 10%; }
+        .highlight { color: var(--gold); font-weight: bold; }
+
+        .phone-btn { 
+            display: inline-block; padding: 18px 40px; background: var(--gold); 
+            color: #000; font-weight: 900; border-radius: 4px; text-decoration: none;
+            margin: 10px; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .phone-btn:hover { background: #fff; transform: translateY(-3px); }
+
+        footer { padding: 60px 20px; text-align: center; border-top: 1px solid #1E293B; }
     </style>
 </head>
 <body>
-    <img src="logo.jpg" alt="Content Factory Logo" style="width: 80px; height: 80px; border-radius: 15px; margin-bottom: 20px; border: 2px solid #D97706;">
-    <h1>AVAD Content Orchestration Engine</h1>
-    <p>Operational node for high-velocity narrative synthesis and distribution.</p>
-    
-    <div class="box">
-        <h3>Pipeline Status: <span style="color: #22C55E;">ACTIVE PRODUCTION</span></h3>
-        <p>This node handles the upstream ingestion and temporal compositing of media assets for  Business Ventures.</p>
+
+    <header>
+        <div style="letter-spacing: 8px; color: var(--gold); margin-bottom: 15px; font-weight: bold;">AVAD INFRASTRUCTURE</div>
+        <h1 class="hero-title">High-Velocity <br/><span class="gold-glow">Market Dominance</span></h1>
+        <p style="max-width: 700px; color: #64748B; margin-bottom: 30px; font-size: 1.1rem;">
+            Unified AI Orchestration. Turning complex brand data into revenue-generating signals via voice, text, and vertical cinema.
+        </p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+            <a href="#sms" class="phone-btn">Explore Engine</a>
+            <a href="tel:+256775896448" class="phone-btn" style="background: white;">Book Demo</a>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <!-- LINKED TO INTERNAL SECTIONS -->
+        <a href="#sms" class="pillar-card">
+            <h3>📩 AI Bulk SMS</h3>
+            <p>1,000+ personalized customer re-engagements synthesized by Llama 3.1 and deployed via Africa's Talking.</p>
+        </a>
+        <a href="#calling" class="pillar-card">
+            <h3>🎙️ Autonomous Calling</h3>
+            <p>Zero-shot voice cloning enables the system to interact with clients using your unique executive voice profile.</p>
+        </a>
+
+        <!-- LINKED TO THE EXTERNAL FACTORY.HTML (YOUR PREVIOUS SITE) -->
+        <a href="factory.html" class="pillar-card" style="border: 1.5px solid var(--gold);">
+            <h3>🎬 Media Factory</h3>
+            <p>Automatic 3-minute professional video synthesis and multi-tenant posting. [Click to view Operational UI]</p>
+        </a>
+        
+        <a href="#leads" class="pillar-card">
+            <h3>🧲 Lead Harvesting</h3>
+            <p>Autonomous semantic scrapers that transform any web URI into a structured sales database for local SMEs.</p>
+        </a>
     </div>
 
-    <div class="legal-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="https://github.com/JohnsonAvad/Content-Reels-Factory">Source Repository</a>
-    </div>
-    
-    <footer style="margin-top: 50px; color: #64748B; font-size: 0.8em;">
-        &copy; 2026 AVAD Content Orchestration Factory. All identifiers are persistent.
+    <section id="sms">
+        <h2 class="hero-title" style="font-size: 2.5rem;">Intelligent <span class="highlight">Narrative Distribution</span></h2>
+        <p>Utilize the low-latency Africa's Talking gateway paired with AVAD intelligence. We don't send spam; we build relationships. Every message is tailored to the individual lead's purchase history and geographic context.</p>
+    </section>
+
+    <section id="calling" style="background-color: #050b1a;">
+        <h2 class="hero-title" style="font-size: 2.5rem;">Executive <span class="highlight">Voice Delegation</span></h2>
+        <p>In the digital era, time is the bottleneck. AVAD Calling nodes manage your client outreach with high-fidelity neural speech. Perfect for personalized payment reminders, appointment setting, and cold-lead nurturing.</p>
+    </section>
+
+    <section id="leads">
+        <h2 class="hero-title" style="font-size: 2.5rem;">Semantic <span class="highlight">Discovery Nodes</span></h2>
+        <p>Our lead harvester 'listens' to the digital landscape. It identifies businesses reaching out for services in your sector and automatically provisions their metadata into your AVAD Intelligence Vault.</p>
+    </section>
+
+    <footer>
+        <h2>Connect With AVAD</h2>
+        <p style="margin: 20px 0; color: #475569;">Contact our founding engineers directly:</p>
+        <a href="tel:+256775896448" style="color: var(--gold); text-decoration: none; margin: 0 15px;">+256 775 896 448</a>
+        <a href="tel:+256766004525" style="color: var(--gold); text-decoration: none; margin: 0 15px;">+256 766 004 525</a>
+        <p style="margin-top: 40px; font-size: 0.8rem; color: #1e293b;">© 2026 AVAD SYSTEMS LIMITED. LOCALIZED INTELLIGENCE. GLOBAL IMPACT.</p>
     </footer>
+
 </body>
 </html>
